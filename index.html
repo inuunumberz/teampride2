@@ -1,0 +1,197 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+	
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#food">Sponsers!</a></li>
+                <li><a href="#food-menu">Annoncments!</a></li>
+                <li><a href="#testimonials">Event Schedule</a></li>
+                <li><a href="#contact">Payment</a></li>
+            </ul>
+            <h1 class="logo">TPBB</h1>
+        </div>
+    </nav>
+    <section class="showcase-area" id="showcase">
+        <div class="showcase-container">
+            <h1 class="main-title" id="home">Team Pride basketball</h1>
+            <p>Shoot some hoops</p>
+            <a href="#food-menu" class="btn btn-primary">Annoncments</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-wrapper container">
+            <div class="about-text">
+                <p class="small">About Us</p>
+                <h2>Team Pride BasketBall</h2>
+                <p>
+                   Team pride is a no profit orinization for your kids to have fun and compete in BasketBall. Tryout and shoot some hoops!
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="https://i.postimg.cc/02QfnjYK/123-1.jpg" alt="food" />
+            </div>
+        </div>
+    </section>
+	
+	   <section id="food">
+        <h2>Board Members</h2>
+        <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://i.postimg.cc/7L2WvpgD/123-1.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h2 class="food-titile">Sarah Borgesen</h2>
+                    <p>
+					8TH Grade Team Liason
+                    </p>
+                </div>
+            </div>
+	
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+	
+	
+	
+	
+	
+	
+    <section id="food">
+        <h2>Coaches</h2>
+        <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://i.postimg.cc/mDm2BBmJ/OIP.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h2 class="food-titile">Coach so and so</h2>
+                    <p>
+					Great coach
+                    </p>
+                </div>
+            </div>
+	
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+    <section id="food-menu">
+        <h2 class="food-menu-heading">Sponsors</h2>
+        <div class="food-menu-container container">
+		  <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-img">
+                    <img src="https://i.postimg.cc/02QfnjYK/123-1.jpg" alt="" />
+                </div>
+                <div class="food-description">
+                    <h2 class="food-titile">Team pride basket ball</h2>
+                    <p>
+					This is a example
+                    </p>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	    <section id="food-menu">
+        <h2 class="food-menu-heading">Annoncments</h2>
+	<H3> This is a example Annoncment.</H3>
+    </section>
+	
+	
+	
+	
+    <section id="testimonials">
+        <h2 class="testimonial-title">Event Schedule</h2>
+     <p>Nothing here yet.</p>
+    </section>
+    <section id="contact">
+		<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'silver',
+          layout: 'horizontal',
+          label: 'checkout',
+          tagline: true
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"Basketball","amount":{"currency_code":"USD","value":40}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+    </section>
+    <footer id="footer">
+        <h2>Team Pride BasketBall &copy; all rights reserved</h2>
+		<p> Produced by Matthew George </p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+
+	<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+</html>
+
+</body>
+
+</html>
